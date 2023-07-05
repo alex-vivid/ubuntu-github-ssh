@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Generating SSH key
+ssh-keygen -t ed25519 -C "alexanderrosen45@gmail.com"
+
+# Starting SSH Agent
+eval "$(ssh-agent -s)"
+
+# Adding SSH key to the agent
+ssh-add ~/.ssh/id_ed25519
+
+# Installing xclip for easy copy to clipboard
+sudo apt install xclip
+
+# Copying the public key to clipboard
+cat ~/.ssh/id_ed25519.pub | xclip -selection clipboard
